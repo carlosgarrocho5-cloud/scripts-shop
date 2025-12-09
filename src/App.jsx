@@ -164,17 +164,17 @@ export default function ShopPage() {
       },
       { 
         id: 7, 
-        name: language === 'en' ? '(Coming soon)Admin Commands Suite' : '(Próximamente) Suite de Comandos de Admin',
-        price: 4.99, 
-        image: '/images/products/admin-commands.jpg',
-        youtubeUrl: 'https://www.youtube.com/watch?v=example7',
-        category: 'Roblox',
+        name: language === 'en' ? 'Personal Assistant' : 'Asistencia Personalizada',
+        price: 20.00, 
+        image: '/images/products/personal-assistant.jpg',
+        youtubeUrl: null,
+        category: 'Fivem',
         description: language === 'en'
-          ? 'Comprehensive admin panel for Roblox games'
-          : 'Panel de administración integral para juegos de Roblox',
+          ? 'If you’re having any issues with your FiveM server, or if you want to start your own server but don’t know how — our team is here to help you every step of the way!'
+          : '¿Tienes problemas con tu servidor de FiveM? ¿O quieres crear uno desde cero y no sabes por dónde empezar?',
         features: language === 'en'
-          ? ['200+ Commands', 'Ban System', 'Logs Dashboard']
-          : ['200+ Comandos', 'Sistema de Baneos', 'Panel de Registros']
+          ? ['Personal Asistance', '24/7', 'Discord https://discord.gg/vfKRbWU3ZX\n4']
+          : ['Asistencia Personalizada', '24/7', 'Discord https://discord.gg/vfKRbWU3ZX\n4']
       },
       { 
         id: 8, 
