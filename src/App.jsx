@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ShoppingCart, Plus, Minus, Trash2, Code, Download, Languages } from 'lucide-react';
+import { ShoppingCart, Plus, Minus, Trash2, Code, Download, Languages, Youtube } from 'lucide-react';
 
 export default function ShopPage() {
   const [cart, setCart] = useState([]);
@@ -458,12 +458,26 @@ export default function ShopPage() {
 
                 <div className="flex justify-between items-center mt-4 pt-4 border-t border-purple-500 border-opacity-30">
                   <span className="text-2xl font-bold text-white">${product.price}</span>
-                  <button
-                    onClick={() => addToCart(product)}
-                    className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-4 py-2 rounded-lg hover:from-purple-700 hover:to-blue-700 transition font-semibold"
-                  >
-                    {t.addToCart}
-                  </button>
+                  <div className="flex gap-2">
+                    {product.youtubeUrl && (
+                      <a
+                        href={product.youtubeUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="bg-red-600 text-white px-3 py-2 rounded-lg hover:bg-red-700 transition font-semibold flex items-center gap-1"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <Youtube className="w-4 h-4" />
+                        Demo
+                      </a>
+                    )}
+                    <button
+                      onClick={() => addToCart(product)}
+                      className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-4 py-2 rounded-lg hover:from-purple-700 hover:to-blue-700 transition font-semibold"
+                    >
+                      {t.addToCart}
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
