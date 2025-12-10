@@ -89,8 +89,8 @@ export default function ShopPage() {
           ? 'Premium Car Services with Debadge, Armoring, Repaint, and Tuning. These services are available after purchase only.'
           : 'Servicios Premium para Vehículos con eliminación de emblemas, blindaje, repintado y tuning. Disponibles solo después de la compra.',
         features: language === 'en'
-          ? ['Debadge', 'Full Armoring', 'Custom Repaint', 'Performance Tuning', 'Post-purchase service via Discord https://discord.gg/vfKRbWU3ZX\n4']
-          : ['Eliminación de emblemas', 'Blindaje completo', 'Repintado personalizado', 'Tuning de rendimiento', 'Servicio post-compra vía Discord https://discord.gg/vfKRbWU3ZX\n4']
+          ? ['Debadge', 'Full Armoring', 'Custom Repaint', 'Performance Tuning', 'Post-purchase service via Discord https://discord.gg/wT4sRsnY9m']
+          : ['Eliminación de emblemas', 'Blindaje completo', 'Repintado personalizado', 'Tuning de rendimiento', 'Servicio post-compra vía Discord https://discord.gg/wT4sRsnY9m']
       },
       { 
         id: 2,
@@ -103,8 +103,8 @@ export default function ShopPage() {
           ? 'Advanced Mechanic Tablet - Transform any vehicle with ultimate customization power! Modify ALL car aspects with Monster Truck mode.'
           : 'Tablet de Mecánico Avanzado - Transforma cualquier vehículo con el poder definitivo de personalización. Modifica TODOS los aspectos con modo Monster Truck.',
         features: language === 'en'
-          ? ['Full Car Customization', 'Monster Truck Mode', 'Inventory Integration', 'Paint, Wheels & Suspension', 'Optimized for Mechanic Jobs', 'Discord https://discord.gg/vfKRbWU3ZX\n4']
-          : ['Personalización completa de vehículos', 'Modo Monster Truck', 'Integración con inventario', 'Pintura, ruedas y suspensión', 'Optimizado para mecánicos','Discord https://discord.gg/vfKRbWU3ZX\n4']
+          ? ['Full Car Customization', 'Monster Truck Mode', 'Inventory Integration', 'Paint, Wheels & Suspension', 'Optimized for Mechanic Jobs', 'Discord https://discord.gg/wT4sRsnY9m']
+          : ['Personalización completa de vehículos', 'Modo Monster Truck', 'Integración con inventario', 'Pintura, ruedas y suspensión', 'Optimizado para mecánicos','Discord https://discord.gg/wT4sRsnY9m']
       },
       { 
         id: 3, 
@@ -117,8 +117,8 @@ export default function ShopPage() {
           ? 'QBCORE Defend Yourself while you are stoned: The script includes the cigar and edible items after you smoke or eat you get stoned then a UFO flies to your position.'
           : 'QBCORE Defiendete Mientras Estas hasta arriba: El Script cuenta con el cigarro y un comestible dspues de fumar o comer sufres los efectos de la maria pero un OVNI baja hasta tu posición',
         features: language === 'en'
-          ? ['Cigar', 'Edible', 'Aliens','Discord https://discord.gg/vfKRbWU3ZX\n4']
-          : ['Cigarro', 'Comestible', 'Aliens','Discord https://discord.gg/vfKRbWU3ZX\n4']
+          ? ['Cigar', 'Edible', 'Aliens','Discord https://discord.gg/wT4sRsnY9m']
+          : ['Cigarro', 'Comestible', 'Aliens','Discord https://discord.gg/wT4sRsnY9m']
       },
       { 
         id: 4, 
@@ -131,8 +131,8 @@ export default function ShopPage() {
           ? 'QBCORE After Smoking Grab the Fury and transform into a mighty Dinosaur, The script includes the cigar and edible items'
           : 'QBCORE Despues de Fumar abraza la furia y transformate en un Poderoso Dinosaurio, El Script cuenta con el cigarro y un comestible',
         features: language === 'en'
-          ? ['Cigar', 'Edible', 'Dinosaurs', 'Discord https://discord.gg/vfKRbWU3ZX\n4']
-          : ['Cigarro', 'Comestible', 'Dinosaurios', 'Discord https://discord.gg/vfKRbWU3ZX\n4']
+          ? ['Cigar', 'Edible', 'Dinosaurs', 'Discord https://discord.gg/wT4sRsnY9m']
+          : ['Cigarro', 'Comestible', 'Dinosaurios', 'Discord https://discord.gg/wT4sRsnY9m']
       },
       { 
         id: 5, 
@@ -145,8 +145,8 @@ export default function ShopPage() {
           ? 'QBCORE After Smoking you suffer the effect of your spirit animal, dont panic just enjoy the ride, The script includes the cigar and edible items'
           : 'QBCORE Después de Fumar sufriras los efectos de tu Animal Interno no entres en panico solo disfruta el viaje, El Script cuenta con el cigarro y un comestible',
         features: language === 'en'
-          ? ['Cigar', 'Edible', 'Animals', 'Discord https://discord.gg/vfKRbWU3ZX\n4']
-          : ['Cigarro', 'Comestible', 'Animales', 'Discord https://discord.gg/vfKRbWU3ZX\n4']
+          ? ['Cigar', 'Edible', 'Animals', 'Discord https://discord.gg/wT4sRsnY9m']
+          : ['Cigarro', 'Comestible', 'Animales', 'Discord https://discord.gg/wT4sRsnY9m']
       },
       { 
         id: 6, 
@@ -159,8 +159,8 @@ export default function ShopPage() {
           ? 'QBCORE After Smoking you suffer the effect of the undead, The script includes the cigar and edible items'
           : 'QBCORE Después de Fumar sufriras los efectos de la Ultratumba, El Script cuenta con el cigarro y un comestible',
         features: language === 'en'
-          ? ['Cigar', 'Edible', 'Zombies', 'Discord https://discord.gg/vfKRbWU3ZX\n4']
-          : ['Cigarro', 'Comestible', 'Zombies', 'Discord https://discord.gg/vfKRbWU3ZX\n4']
+          ? ['Cigar', 'Edible', 'Zombies', 'Discord https://discord.gg/wT4sRsnY9m']
+          : ['Cigarro', 'Comestible', 'Zombies', 'Discord https://discord.gg/wT4sRsnY9m']
       },
       { 
         id: 7, 
@@ -173,8 +173,8 @@ export default function ShopPage() {
           ? 'If you’re having any issues with your FiveM server, or if you want to start your own server but don’t know how — our team is here to help you every step of the way!'
           : '¿Tienes problemas con tu servidor de FiveM? ¿O quieres crear uno desde cero y no sabes por dónde empezar?',
         features: language === 'en'
-          ? ['Personal Asistance', '24/7', 'Discord https://discord.gg/vfKRbWU3ZX\n4']
-          : ['Asistencia Personalizada', '24/7', 'Discord https://discord.gg/vfKRbWU3ZX\n4']
+          ? ['Personal Asistance', '24/7', 'Discord https://discord.gg/wT4sRsnY9m']
+          : ['Asistencia Personalizada', '24/7', 'Discord https://discord.gg/wT4sRsnY9m']
       },
       { 
         id: 8, 
@@ -187,8 +187,8 @@ export default function ShopPage() {
           ? 'QBCORE ✨ Features: Custom Menu: user-friendly interface for seamless backpack access. 3 Backpack Sizes: Normal, Medium, and Large – perfect for any playstyle. Auto-Detection: Automatically supports a wide variety of inventories ox_inventory, qb-inventory, qs-inventory, lj-inventory, core_inventory, and more!. Easy Setup: Just drag & drop into your resources folder, add the items, and youre ready to go One-time purchase. Lifetime updates. Have fun 🚀'
 		  : 'QBCORE ✨ Características: Menú custom: Interfaz elegante y fácil de usar para acceder a tu mochila. 3 Tamaños de Mochila: Normal, Mediana y Grande – ideal para cualquier estilo de juego. Detección Automática: Compatible automáticamente con una amplia variedad de inventarios (ox_inventory, qb-inventory, qs-inventory, lj-inventory, core_inventory, y más). Instalación Fácil: Solo arrastra y suelta en tu carpeta de recursos, añade los items y ¡listo! Compra única. Actualizaciones de por vida. ¡Diviértete! 🚀',
         features: language === 'en'
-          ? ['Custom Menu', '3 Backpack Sizes', 'Auto-Detection', 'Discord https://discord.gg/vfKRbWU3ZX\n4']
-          : ['Menú custom', '3 Tamaños de Mochila', 'Detección Automática', 'Discord https://discord.gg/vfKRbWU3ZX\n4']
+          ? ['Custom Menu', '3 Backpack Sizes', 'Auto-Detection', 'Discord https://discord.gg/wT4sRsnY9m']
+          : ['Menú custom', '3 Tamaños de Mochila', 'Detección Automática', 'Discord https://discord.gg/wT4sRsnY9m']
       },
       { 
         id: 9, 
