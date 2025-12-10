@@ -178,17 +178,17 @@ export default function ShopPage() {
       },
       { 
         id: 8, 
-        name: language === 'en' ? '(Coming soon) Tycoon Framework' : '(Próximamente) Marco de Tycoon',
+        name: language === 'en' ? 'Advanced Backpack System' : 'Sistema Avanzado de Mochilas',
         price: 9.99, 
-        image: 'https://images.unsplash.com/photo-1614680376573-df3480f0c6ff?w=400&h=300&fit=crop',
-        youtubeUrl: null,
-        category: 'Roblox',
+        image: '/images/products/advanced-backpack.jpg',
+        youtubeUrl: 'https://www.youtube.com/watch?v=EXwkTaWr68o',
+        category: 'Fivem',
         description: language === 'en'
-          ? 'Ready-to-use tycoon game framework'
-          : 'Marco de juego tycoon listo para usar',
+          ? 'Advanced Backpack System ✨ Features: Custom Menu: user-friendly interface for seamless backpack access. 3 Backpack Sizes: Normal, Medium, and Large – perfect for any playstyle. Auto-Detection: Automatically supports a wide variety of inventories ox_inventory, qb-inventory, qs-inventory, lj-inventory, core_inventory, and more!. Easy Setup: Just drag & drop into your resources folder, add the items, and youre ready to go One-time purchase. Lifetime updates. Have fun 🚀'
+		  : '✨ Características: Menú custom: Interfaz elegante y fácil de usar para acceder a tu mochila. 3 Tamaños de Mochila: Normal, Mediana y Grande – ideal para cualquier estilo de juego. Detección Automática: Compatible automáticamente con una amplia variedad de inventarios (ox_inventory, qb-inventory, qs-inventory, lj-inventory, core_inventory, y más). Instalación Fácil: Solo arrastra y suelta en tu carpeta de recursos, añade los items y ¡listo! Compra única. Actualizaciones de por vida. ¡Diviértete! 🚀',
         features: language === 'en'
-          ? ['Data Saving', 'Gamepasses', 'Custom Buildings']
-          : ['Guardado de Datos', 'Gamepasses', 'Edificios Personalizados']
+          ? ['Custom Menu', '3 Backpack Sizes', 'Auto-Detection', 'Discord https://discord.gg/vfKRbWU3ZX\n4']
+          : ['Menú custom', '3 Tamaños de Mochila', 'Detección Automática', 'Discord https://discord.gg/vfKRbWU3ZX\n4']
       },
       { 
         id: 9, 
