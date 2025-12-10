@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ShoppingCart, Plus, Minus, Trash2, Code, Download, Languages, Youtube, X } from 'lucide-react';
+import { ShoppingCart, Plus, Minus, Trash2, Code, Download, Languages } from 'lucide-react';
 
 export default function ShopPage() {
   const [cart, setCart] = useState([]);
@@ -10,8 +10,6 @@ export default function ShopPage() {
   const [customerEmail, setCustomerEmail] = useState('');
   const [emailError, setEmailError] = useState('');
   const [isProcessing, setIsProcessing] = useState(false);
-  const [showVideoModal, setShowVideoModal] = useState(false);
-  const [currentVideo, setCurrentVideo] = useState(null);
 
   const translations = {
     en: {
@@ -30,8 +28,8 @@ export default function ShopPage() {
         title: 'Shopping Cart',
         empty: 'Your cart is empty',
         total: 'Total:',
-        delivery: '✔ Instant delivery via email',
-        updates: '✔ Lifetime updates included',
+        delivery: '✓ Instant delivery via email',
+        updates: '✓ Lifetime updates included',
         loading: 'Loading PayPal...',
         emailLabel: 'Your Email (for download links):',
         emailPlaceholder: 'your@email.com',
@@ -39,7 +37,6 @@ export default function ShopPage() {
         processing: 'Processing your order...'
       },
       addToCart: 'Add to Cart',
-      watchVideo: 'Watch Demo',
       features: 'Features:',
       category: 'Category'
     },
@@ -59,8 +56,8 @@ export default function ShopPage() {
         title: 'Carrito de Compras',
         empty: 'Tu carrito está vacío',
         total: 'Total:',
-        delivery: '✔ Entrega instantánea por correo',
-        updates: '✔ Actualizaciones de por vida incluidas',
+        delivery: '✓ Entrega instantánea por correo',
+        updates: '✓ Actualizaciones de por vida incluidas',
         loading: 'Cargando PayPal...',
         emailLabel: 'Tu Email (para enlaces de descarga):',
         emailPlaceholder: 'tu@email.com',
@@ -68,7 +65,6 @@ export default function ShopPage() {
         processing: 'Procesando tu orden...'
       },
       addToCart: 'Añadir al Carrito',
-      watchVideo: 'Ver Demo',
       features: 'Características:',
       category: 'Categoría'
     }
@@ -77,6 +73,21 @@ export default function ShopPage() {
   const t = translations[language];
 
   const getProducts = () => {
+    try {
+      const stored = localStorage.getItem('shop-products');
+      if (stored) {
+        const storedProducts = JSON.parse(stored);
+        return storedProducts.map(p => ({
+          ...p,
+          name: language === 'en' ? p.name.en : p.name.es,
+          description: language === 'en' ? p.description.en : p.description.es,
+          features: language === 'en' ? p.features.en : p.features.es
+        }));
+      }
+    } catch (error) {
+      console.error('Error loading products:', error);
+    }
+
     return [
       { 
         id: 1,
@@ -211,6 +222,14 @@ export default function ShopPage() {
   const categories = ['All', 'FiveM', 'Minecraft', 'Roblox'];
   const filteredProducts = selectedCategory === 'All' ? products : products.filter(p => p.category === selectedCategory);
 
+  const makeLinksClickable = (text) => {
+    if (!text) return '';
+    return text.replace(
+      /(https?:\/\/[^\s]+)/g,
+      '<a href="$1" target="_blank" rel="noopener noreferrer" class="text-purple-400 hover:text-purple-300 underline">$1</a>'
+    );
+  };
+
   const addToCart = (product) => {
     const existing = cart.find(item => item.id === product.id);
     if (existing) {
@@ -234,22 +253,6 @@ export default function ShopPage() {
 
   const removeFromCart = (id) => {
     setCart(cart.filter(item => item.id !== id));
-  };
-
-  const openVideoModal = (youtubeUrl) => {
-    setCurrentVideo(youtubeUrl);
-    setShowVideoModal(true);
-  };
-
-  const closeVideoModal = () => {
-    setShowVideoModal(false);
-    setCurrentVideo(null);
-  };
-
-  const getYouTubeEmbedUrl = (url) => {
-    if (!url) return null;
-    const videoId = url.split('v=')[1]?.split('&')[0] || url.split('/').pop();
-    return `https://www.youtube.com/embed/${videoId}`;
   };
 
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
@@ -330,16 +333,16 @@ export default function ShopPage() {
           });
 
           if (response.ok) {
-            alert('Payment successful! Download links sent to: ' + customerEmail);
+            alert(`✅ Payment successful!\n\n📧 Download links have been sent to:\n${customerEmail}\n\nCheck your email (and spam folder) for your scripts!\n\nTransaction ID: ${details.id}`);
             setCart([]);
             setCustomerEmail('');
             setShowCart(false);
           } else {
-            alert('Payment received, but there was an issue sending the download links. Please contact support.');
+            alert('Payment received, but there was an issue sending the download links. Please contact support with your transaction ID: ' + details.id);
           }
         } catch (error) {
           console.error('Order processing error:', error);
-          alert('Payment successful, but please contact support for your download links.');
+          alert('Payment successful, but please contact support for your download links. Transaction ID: ' + data.orderID);
         } finally {
           setIsProcessing(false);
         }
@@ -354,6 +357,22 @@ export default function ShopPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+      <style>{`
+        .scrollbar-thin::-webkit-scrollbar {
+          width: 6px;
+        }
+        .scrollbar-thin::-webkit-scrollbar-track {
+          background: transparent;
+        }
+        .scrollbar-thin::-webkit-scrollbar-thumb {
+          background: #9333ea;
+          border-radius: 3px;
+        }
+        .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+          background: #a855f7;
+        }
+      `}</style>
+      
       <header className="bg-black bg-opacity-50 backdrop-blur-md shadow-lg sticky top-0 z-50 border-b border-purple-500">
         <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
           <div className="flex items-center gap-2">
@@ -417,27 +436,21 @@ export default function ShopPage() {
                 <span className="absolute top-2 right-2 bg-purple-600 text-white text-xs px-3 py-1 rounded-full font-semibold">
                   {product.category}
                 </span>
-                {product.youtubeUrl && (
-                  <button
-                    onClick={() => openVideoModal(product.youtubeUrl)}
-                    className="absolute top-2 left-2 bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-full font-semibold text-xs flex items-center gap-1 transition"
-                  >
-                    <Youtube className="w-4 h-4" />
-                    {t.watchVideo}
-                  </button>
-                )}
               </div>
               <div className="p-5">
                 <h3 className="text-xl font-bold text-white mb-2">{product.name}</h3>
-                <p className="text-gray-300 text-sm mb-3 line-clamp-3">{product.description}</p>
+                <div 
+                  className="text-gray-300 text-sm mb-3 max-h-20 overflow-y-auto pr-2 scrollbar-thin"
+                  dangerouslySetInnerHTML={{ __html: makeLinksClickable(product.description) }}
+                />
                 
                 <div className="mb-4">
                   <p className="text-xs text-purple-300 font-semibold mb-2">{t.features}</p>
-                  <ul className="space-y-1">
+                  <ul className="space-y-1 max-h-24 overflow-y-auto pr-2 scrollbar-thin">
                     {product.features.map((feature, idx) => (
-                      <li key={idx} className="text-xs text-gray-300 flex items-center gap-1">
-                        <Download className="w-3 h-3 text-purple-400" />
-                        {feature}
+                      <li key={idx} className="text-xs text-gray-300 flex items-start gap-1">
+                        <Download className="w-3 h-3 text-purple-400 flex-shrink-0 mt-0.5" />
+                        <span dangerouslySetInnerHTML={{ __html: makeLinksClickable(feature) }} />
                       </li>
                     ))}
                   </ul>
@@ -458,33 +471,10 @@ export default function ShopPage() {
         </div>
       </main>
 
-      {showVideoModal && currentVideo && (
-        <div className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4" onClick={closeVideoModal}>
-          <div className="relative w-full max-w-4xl" onClick={(e) => e.stopPropagation()}>
-            <button
-              onClick={closeVideoModal}
-              className="absolute -top-12 right-0 text-white hover:text-purple-400 transition"
-            >
-              <X className="w-8 h-8" />
-            </button>
-            <div className="relative pb-[56.25%] bg-black rounded-lg overflow-hidden">
-              <iframe
-                className="absolute top-0 left-0 w-full h-full"
-                src={getYouTubeEmbedUrl(currentVideo)}
-                title="Product Demo"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
-            </div>
-          </div>
-        </div>
-      )}
-
       {showCart && (
         <div className="fixed inset-0 bg-black bg-opacity-70 z-50" onClick={() => setShowCart(false)}>
           <div
-            className="absolute right-0 top-0 h-full w-full max-w-md bg-gradient-to-br from-slate-900 to-purple-900 shadow-2xl overflow-y-auto"
+            className="absolute right-0 top-0 h-full w-full max-w-md bg-gradient-to-br from-slate-900 to-purple-900 shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="p-6 h-full flex flex-col">
